@@ -4,14 +4,6 @@ import calculateWinner from './WinnerCalculator';
 import './Style.css';
 
 class Board extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            squares: Array(9).fill(null),
-            xIsNext: true
-        }
-    }
-
     handleClick(index) {
         const squares = this.state.squares.slice();
         if (calculateWinner(squares) || squares[index]) {
@@ -39,7 +31,6 @@ class Board extends Component {
 
         return (
         <div>
-            <div className="status">{status}</div>
             <div className="board-row">
             {this.renderSquare(0)}
             {this.renderSquare(1)}
